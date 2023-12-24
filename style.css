@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.book-library {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.card {
+    width: max(300px, 25vmax);
+    height: max(300px, 25vmax);
+    background-color: #f0eef1;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.card button {
+    width: 90%;
+    flex: 1;
+    text-align: center;
+    background-color: none;
+    font-size: 28px;
+    opacity: 1;
+} 
+
+button {
+    display: block;
+    margin: auto;
+    padding: 10px 30px;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: xx-large;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1vh;
+    background: none;
+}
+
+#add-book {
+    color: darkcyan;
+}
+
+#add-book:hover, dialog button:not(:disabled):hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    transition:cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.5s;
+}
+
+#userinput {
+    width: 100%;
+    height: 100%;
+    background-color: #f0eef1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input:not([type='checkbox']) {
+    flex: 1;
+    width: 90%;
+    border: none;
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+label {
+    font-size: 25px;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+dialog {
+    margin: auto;
+    border-radius: 25px;
+    width: 300px;
+    height: 400px;
+}
+
+#cancel {
+    background-color: tomato;
+}
+
