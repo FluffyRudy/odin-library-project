@@ -36,6 +36,12 @@ function addBookCard() {
         }
     }
 
+    const removeBtn = document.createElement('button');
+    removeBtn.style.backgroundColor = 'red';
+    removeBtn.setAttribute('id', 'remove');
+    removeBtn.textContent = 'Remove';
+    card.appendChild(removeBtn);
+
     libContainer.appendChild(card);
 }
 
@@ -74,7 +80,6 @@ inputField.forEach((elem) => {
 })
 
 document.addEventListener('click', (e) => {
-    console.log(e.target)
     if (e.target.id == 'statusbtn') {
         if (e.target.style.backgroundColor === "lime") {
             e.target.style.backgroundColor = "tomato";
@@ -83,5 +88,7 @@ document.addEventListener('click', (e) => {
             e.target.style.backgroundColor = "lime";
             e.target.textContent = "read";
         }
+    } else if (e.target.id === "remove") {
+        console.log(e.target.parentNode.remove())
     }
 })
