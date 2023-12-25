@@ -6,6 +6,7 @@ const confirmButton  = document.getElementById("confirm");
 const libContainer   = document.querySelector(".book-library");
 const inputField     = document.querySelectorAll(".inputs");
 const myLibrary      = [];
+let   bookId         = 0;
 
 confirmButton.disabled = true;
 
@@ -18,6 +19,7 @@ function Book(author, title, pagenum, status) {
 
 function addBookCard() {
     const card    = document.createElement('div');
+    card.setAttribute('bookID', `${bookId}`);
     card.classList.add('card');
     const current = myLibrary[myLibrary.length-1];
     
@@ -38,6 +40,7 @@ function addBookCard() {
 
     const removeBtn = document.createElement('button');
     removeBtn.style.backgroundColor = 'red';
+    removeBtn.style.marginBottom = "10px";
     removeBtn.setAttribute('id', 'remove');
     removeBtn.textContent = 'Remove';
     card.appendChild(removeBtn);
@@ -52,6 +55,7 @@ function addBookToLibrary() {
         inputData.push(elem.value);
     }
     myLibrary.push(new Book(...inputData, statusInput));
+    bookId++;
     addBookCard()
 }
 
@@ -89,6 +93,9 @@ document.addEventListener('click', (e) => {
             e.target.textContent = "read";
         }
     } else if (e.target.id === "remove") {
-        console.log(e.target.parentNode.remove())
+        const index = parseInt(e.target.parentNode.getAttribute('bookID'))-1;
+        myLibrary.splice(index, 1);
+        e.target.parentNode.remove();
+        bookId--;
     }
 })
