@@ -26,4 +26,4 @@ This project is based on the TheOdinProject curriculum. The original project ide
 
 ## How to Use
 
-To use the app, open the HTML file in a web browser. Click the "Add Book" button to open the dialog, enter the book's details, and click "Confirm" to add the book to the library.
+To use the app, open the HTML file in a web browser. Click the "Add Book" button to open the dialog, enter the book's details, click "Confirm" to add the book to the library and click "Remove" to remove book from library.
