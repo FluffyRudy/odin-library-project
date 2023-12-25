@@ -20,7 +20,7 @@ body {
 
 .card {
     width: max(300px, 25vmax);
-    height: max(300px, 25vmax);
+    height: minmax(350px, 25vmax);
     background-color: #f0eef1;
     color: #000;
     display: flex;
