@@ -10,11 +10,13 @@ let   bookId         = 0;
 
 confirmButton.disabled = true;
 
-function Book(author, title, pagenum, status) {
-    this.author  = author;
-    this.title   = title;
-    this.pagenum = pagenum;
-    this.status  = status;
+class Book {
+    constructor(author, title, pagenum, status) {
+        this.author  = author;
+        this.title   = title;
+        this.pagenum = pagenum;
+        this.status  = status;
+    }
 }
 
 function addBookCard() {
