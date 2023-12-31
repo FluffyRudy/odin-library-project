@@ -10,8 +10,9 @@ const myLibrary      = [];
 confirmButton.disabled = true;
 
 class Book {
-    static bookID = 0;
+    static bookCounter = 0;
     constructor(author, title, pagenum, status) {
+        this.bookID  = Math.random().toString(36).substring(2, 9);
         this.author  = author;
         this.title   = title;
         this.pagenum = pagenum;
@@ -21,11 +22,13 @@ class Book {
 
 function addBookCard() {
     const card    = document.createElement('div');
-    card.setAttribute('Book.bookID', `${Book.bookID}`);
     card.classList.add('card');
     const current = myLibrary[myLibrary.length-1];
+    card.setAttribute('book-id', `${current.bookID}`);
     
     for (let elem in current) {
+        if (elem == "bookID")
+            continue
         if (elem != "status") {
             const info = document.createElement('button');
             info.textContent  = current[elem];
@@ -57,7 +60,7 @@ function addBookToLibrary() {
         inputData.push(elem.value);
     }
     myLibrary.push(new Book(...inputData, statusInput));
-    Book.bookID++;
+    Book.bookCounter++;
     addBookCard()
 }
 
@@ -95,9 +98,9 @@ document.addEventListener('click', (e) => {
             e.target.textContent = "read";
         }
     } else if (e.target.id === "remove") {
-        const index = parseInt(e.target.parentNode.getAttribute('Book.bookID'))-1;
+        const index = parseInt(e.target.parentNode.getAttribute('Book.bookCounter'))-1;
         myLibrary.splice(index, 1);
         e.target.parentNode.remove();
-        Book.bookID--;
+        Book.bookCounter--;
     }
 })
