@@ -6,11 +6,11 @@ const confirmButton  = document.getElementById("confirm");
 const libContainer   = document.querySelector(".book-library");
 const inputField     = document.querySelectorAll(".inputs");
 const myLibrary      = [];
-let   bookId         = 0;
 
 confirmButton.disabled = true;
 
 class Book {
+    static bookID = 0;
     constructor(author, title, pagenum, status) {
         this.author  = author;
         this.title   = title;
@@ -21,7 +21,7 @@ class Book {
 
 function addBookCard() {
     const card    = document.createElement('div');
-    card.setAttribute('bookID', `${bookId}`);
+    card.setAttribute('Book.bookID', `${Book.bookID}`);
     card.classList.add('card');
     const current = myLibrary[myLibrary.length-1];
     
@@ -57,7 +57,7 @@ function addBookToLibrary() {
         inputData.push(elem.value);
     }
     myLibrary.push(new Book(...inputData, statusInput));
-    bookId++;
+    Book.bookID++;
     addBookCard()
 }
 
@@ -95,9 +95,9 @@ document.addEventListener('click', (e) => {
             e.target.textContent = "read";
         }
     } else if (e.target.id === "remove") {
-        const index = parseInt(e.target.parentNode.getAttribute('bookID'))-1;
+        const index = parseInt(e.target.parentNode.getAttribute('Book.bookID'))-1;
         myLibrary.splice(index, 1);
         e.target.parentNode.remove();
-        bookId--;
+        Book.bookID--;
     }
 })
